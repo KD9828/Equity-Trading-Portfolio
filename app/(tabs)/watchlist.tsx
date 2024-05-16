@@ -120,9 +120,9 @@ export default function WatchlistScreen() {
       // } = await fetchPaymentSheetParams();
       const { error:err } = await initPaymentSheet({
         merchantDisplayName: "KD Trader, Inc.",
-        customerId: 'cus_Q5JSmP8MYRkOSl',
-        customerEphemeralKeySecret: 'ek_test_YWNjdF8xQlRVREdKQUpmWmI5SEVCLEo1aXYzdXZJaVp3YVN1dXB5TlNxRjV6QmIwMmdJV2Y_00buDFOTiS',
-        paymentIntentClientSecret: 'pi_1PF8pBJAJfZb9HEBodh9Y4Qx_secret_ltY028uRjU1MOhEdZzXJWp26H',
+        customerId: 'cus_Q77PDDhxQ2fyQs',
+        customerEphemeralKeySecret: 'ek_test_YWNjdF8xQlRVREdKQUpmWmI5SEVCLEhWeVFqUTBlb2k3aElTYklsY0FWMUZWMnM1NjNuUkQ_00jTPCMe4J',
+        paymentIntentClientSecret: 'pi_1PGtB3JAJfZb9HEB13kYEQep_secret_KJwcFhKbEgQWqVpjmKKuSdFhz',
         allowsDelayedPaymentMethods: true,
         defaultBillingDetails: {
           name: 'Jane Doe',

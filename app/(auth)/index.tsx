@@ -105,7 +105,7 @@ const Login=()=>{
         }
       }}
     /> */}
-        {/* <Text style={styles.textButton} onPress={()=>router.push('/(auth)/sign-in')}>Account Already Exist</Text> */}
+        <Text style={styles.textButton} onPress={()=>router.push('/(auth)/sign-in')}>Login with Email</Text> 
     </View>
     )
  }

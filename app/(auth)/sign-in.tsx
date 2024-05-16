@@ -7,12 +7,12 @@ import { useState } from "react";
 import { Text, View,StyleSheet, TextInput, Alert } from "react-native"
 
 const index=()=>{
-     const [phone,setPhone]=useState("");
+     const [email,setEmail]=useState("");
      const [password,setPassword]=useState("");
      const [error,setError]=useState("");
      const [loading,setLoading]=useState(false);
      const validate=()=>{
-        if(!phone){
+        if(!email){
             setError("Email is required");
             return false;
         }
@@ -22,33 +22,11 @@ const index=()=>{
         }
         return true;
      }
-
-     const checkUserExist=async(number:String)=>{
-        try {
-            //@ts-ignore
-            const { data, error } = await supabase.from('Users').select("*").eq("Phone",phone)
-            if(error){
-                throw error
-            }
-            // console.log('data',data)
-            return data!==null
-        } catch (error) {
-            console.error('Error checking user existence:', error);
-            return false; // Return false if an error occurs
-        }
-     }
      
      const onSubmit=async()=>{
         if(!validate())return;
         setLoading(true);
-        const user=await checkUserExist(phone);
-        // console.log(user);
-        // if(!user){
-        //     Alert.alert('Error', 'User not Exist create new account');
-        //     setLoading(false);
-        //     return;
-        // }
-        const {error}=await supabase.auth.signInWithPassword({phone,password});
+        const {error}=await supabase.auth.signUp({email,password});
         if(error){
             Alert.alert(error.message)
             setLoading(false);
@@ -60,7 +38,7 @@ const index=()=>{
     <View style={styles.container}>
         <Text style={styles.label}>Email</Text>
 
-        <TextInput style={styles.input} placeholder="Enter number" onChangeText={setPhone}/>
+        <TextInput style={styles.input} placeholder="Enter Email" onChangeText={setEmail}/>
 
         <Text style={styles.label}>Password</Text>
 
@@ -69,7 +47,7 @@ const index=()=>{
         <Text style={{ color: 'red' }}>{error}</Text>
 
         <Button onPress={onSubmit} disabled={loading} text={loading?"Sign in...":"Sign in"}/>
-        <Text style={styles.textButton} onPress={()=>router.push('/(auth)/')}>Create new Account</Text>
+        <Text style={styles.textButton} onPress={()=>router.push('/(auth)/')}>Login with phone number</Text>
     </View>
     )
  }

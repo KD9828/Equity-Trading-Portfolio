@@ -7,9 +7,9 @@ export default function authLayout(){
     }
     return(
     <Stack>
-        <Stack.Screen name="index" options={{title:"Signup"}}/>
+        <Stack.Screen name="index" options={{title:"Login with Phone"}}/>
         <Stack.Screen name="otpScreen" options={{title:"Verify OTP"}}/>
-        <Stack.Screen name="sign-in" options={{title:"Signin"}}/>
+        <Stack.Screen name="sign-in" options={{title:"Login with Email"}}/>
     </Stack>
     )
 }
